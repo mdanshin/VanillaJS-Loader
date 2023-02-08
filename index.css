@@ -26,8 +26,7 @@
 }
 
 .loader {
-  border-radius: 10px;
-  width: 75%;
+  border-radius: 9px;
   height: 100%;
   background: goldenrod;
 }
