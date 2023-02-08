@@ -1,34 +1,37 @@
+const elements = [
+  { tag: "div", className: "App" },
+  { tag: "div", className: "text", text: "" },
+  { tag: "div", className: "container" },
+  { tag: "div", className: "loader" }
+]
+
+const HTMLElements = elements.map(({ tag, className, text }) => {
+  const element = document.createElement(tag);
+  element.classList.add(className);
+  text && (element.text = text)
+  return element;
+})
+
+const HTMLElementsArray = HTMLElements.reduce((accumulator, element) => (
+  accumulator[element.className] = element, accumulator
+), {}
+)
+
 const render = (count) => {
-  const App = document.createElement("div");
-  App.classList.add("App");
+  HTMLElementsArray.App.appendChild(HTMLElementsArray.text)
+  HTMLElementsArray.App.appendChild(HTMLElementsArray.container)
+  HTMLElementsArray.container.appendChild(HTMLElementsArray.loader)
 
-  const text = document.createElement("div");
-  text.classList.add("text");
-  text.textContent = `${count}%`
-
-  const container = document.createElement("div");
-  container.classList.add("container");
-
-  const loader = document.createElement("div");
-  loader.classList.add("loader");
-
-  App.appendChild(text);
-  App.appendChild(container);
-
-  container.appendChild(loader);
-
-  return (
-    App
-  )
-}
-
-const counter = (count) => {
   for (let i = 0; i <= count; i++) {
     setTimeout(() => {
       document.querySelector(".text").textContent = `${i}%`;
       document.querySelector(".loader").style.width = `${i}%`;
-    }, 100 * i);
+    }, 10 * i);
   }
-}
 
-document.getElementById("root").appendChild(render(counter(100)));
+  return HTMLElementsArray.App
+}
+console.log(b)
+
+
+document.getElementById("root").appendChild(render(100));
