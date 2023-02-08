@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.text {
+  font-size: 40px;
+  font-family: 'VT323', monospace;
+}
+
+.container {
+  margin-top: 20px;
+  width: 300px;
+  height: 30px;
+  border: 1px solid #000;
+  border-radius: 10px;
+}
+
+.loader {
+  border-radius: 10px;
+  width: 75%;
+  height: 100%;
+  background: goldenrod;
+}
